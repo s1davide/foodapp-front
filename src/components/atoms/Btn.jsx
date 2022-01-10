@@ -1,8 +1,17 @@
 import React from "react";
-
+import "../../styles/components/atoms/Btn.scss";
 const Btn = (props) => {
   return (
-    <div>{props.img ? <img src={props.img}  /> : ""}</div>
+    <div
+      className="btn"
+      style={{
+        marginLeft: props.ml,
+        marginRight: props.mr,
+        cursor: props.curHover,
+      }}
+    >
+      {props.img ? <img src={props.img} /> : ""}
+    </div>
   );
 };
 
