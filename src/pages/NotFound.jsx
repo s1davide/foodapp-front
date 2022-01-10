@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/pages/NotFound.scss'
 const NotFound = () => {
     return (
-        <div className="notFound">
+        <div className="notfound">
             404 Not Found
         </div>
     )
