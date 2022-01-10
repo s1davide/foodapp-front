@@ -7,7 +7,7 @@ const NavBar = (props) => {
     return (
         <div id='nav-bar'>
           {/* Left Menu Btn */}
-          <Btn ml="16px" curHover="pointer" img={coolicon} /> 
+          <Btn ml="16px" onClick={()=>alert('epa')} curHover="pointer" img={coolicon} /> 
         </div>
     )
 }

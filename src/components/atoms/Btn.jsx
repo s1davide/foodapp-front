@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/components/atoms/Btn.scss";
-const Btn = (props) => {
-
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => setSidebar(!sidebar);
-  
+const Btn = (props) => {  
   return (
     <div
       className="btn"
@@ -14,8 +9,9 @@ const Btn = (props) => {
         marginRight: props.mr,
         cursor: props.curHover,
       }}
-      onClick={showSidebar}
+      onClick={props.onClick}
     >
+      
       {props.img ? <img src={props.img} /> : ""}
     </div>
   );
