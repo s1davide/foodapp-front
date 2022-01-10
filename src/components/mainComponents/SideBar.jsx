@@ -3,7 +3,7 @@ import '../../styles/components/mainComponents/SideBar.scss'
 
 const SideBar = () => {
     return (
-        <div id='side-bar'>
+        <div id='sidebar'>
             
         </div>
     )

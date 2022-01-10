@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import TitleBody from "../components/atoms/TitleBody";
+import titlebody from "../components/atoms/titlebody";
 
 import "../styles/pages/Index.scss";
 const Index = (props) => { 
   return (
     <div className="index">
-      <TitleBody title="Categorias" />
+      <titlebody title="Categorias" />
       <div>Index</div>
       <br />
       

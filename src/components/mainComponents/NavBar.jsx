@@ -5,7 +5,7 @@ import coolicon from "../../assets/img/coolicon.png";
 
 const NavBar = (props) => {
     return (
-        <div id='nav-bar'>
+        <div id='navbar'>
           {/* Left Menu Btn */}
           <Btn ml="16px" curHover="pointer" img={coolicon} /> 
         </div>
