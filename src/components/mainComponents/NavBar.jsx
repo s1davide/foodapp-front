@@ -5,7 +5,7 @@ import coolicon from "../../assets/img/coolicon.png";
 
 const NavBar = (props) => {
     return (
-        <div id='nav-bar'>
+        <div id='navbar'>
           <Btn img={coolicon} />
         </div>
     )
