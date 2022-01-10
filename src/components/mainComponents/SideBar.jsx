@@ -5,8 +5,7 @@ import { FaHome, FaInfoCircle, FaInstagram, FaMapMarkerAlt } from "react-icons/f
 const SideBar = () => {
 
     return (
-        <div id='side-bar'>
-             
+        <div id='side-bar'>             
             <div className="menuItem">
                 <FaHome  className="iconMenu"/>
                 <a href="#" >Inicio</a>
