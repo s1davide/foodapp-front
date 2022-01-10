@@ -5,20 +5,20 @@ import { FaHome, FaInfoCircle, FaInstagram, FaMapMarkerAlt } from "react-icons/f
 const SideBar = () => {
     return (
         <div id='sidebar' >             
-            <div className="menu-item">
-                <FaHome  className="icon-menu"/>
+            <div className="menuitem">
+                <FaHome  className="iconmenu"/>
                 <a href="#" >Inicio</a>
             </div>
-            <div className="menu-item">
-                <FaInfoCircle className="icon-menu"/>
+            <div className="menuitem">
+                <FaInfoCircle className="iconmenu"/>
                 <a href="#">Información</a>
             </div>
-            <div  className="menu-item">
-                <FaMapMarkerAlt  className="icon-menu"/>
+            <div  className="menuitem">
+                <FaMapMarkerAlt  className="iconmenu"/>
                 <a href="#">Ubicación</a>
             </div>
-            <div  className="menu-item">
-                <FaInstagram className="icon-menu"/>
+            <div  className="menuitem">
+                <FaInstagram className="iconmenu"/>
                 <a href="#">Instagram</a>
             </div>
             
