@@ -1,4 +1,8 @@
-#side-bar{
+:root{
+    
+    --width-sidebar: 200px;
+}
+#sidebar{
     height:calc(100vh - 70px) ;
     width: 200px;
     background-color: #770000;
@@ -7,7 +11,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: 850ms;
+    transition: width 850ms;
+}
+.sidebar-hide{
+    width: 0px !important;
 }
 
 #nav-menu.active {
@@ -15,20 +22,21 @@
     transition: 350ms;
 }
 
-.menuItem{
+.menu-item{
     width: 80%;
     height: 50px;
     display: flex;
     flex-direction: row;
+    
 }
 
-.iconMenu{
+.icon-menu{
     width: 40px;
     font-size: 20px;
     margin-top: 2px;
 }
 
-.menuItem a{
+.menu-item a{
     text-decoration: none;
     color: #fff;
 }
