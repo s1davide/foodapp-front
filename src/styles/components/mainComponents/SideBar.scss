@@ -1,5 +1,9 @@
+:root{
+    --width-sidebar: 200px;
+}
 #side-bar{
+
     height:calc(100vh - 70px) ;
-    width: 200px;
+    width: var(--width-sidebar);
     background-color: #770000;
 }

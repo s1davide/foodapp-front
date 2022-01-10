@@ -8,7 +8,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route  element={<MainLayout />}>
-          <Route path="/"  element={<Index />} />
+          <Route path="/" element={<Index />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
