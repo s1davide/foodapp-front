@@ -1,13 +1,21 @@
+:root {
+  --min-width-item-base: 390px;
+  --min-width-item: var(--min-width-item-base);
+  --item-transition-duration: var(--speed-transition-sidebar);
+}
 #item {
   display: flex;
   align-items: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   cursor: pointer;
   justify-content: center;
   position: relative;
   width: calc(100% - (20px * 2));
   margin-left: 20px;
   margin-bottom: 10px;
-  min-width: 390px;
+  min-width: var(--min-width-item);
   height: 70px;
   left: 0px;
   top: 0px;
@@ -21,22 +29,25 @@
   line-height: 28px;
   letter-spacing: 0em;
   text-align: left;
-  background-size: cover; 
+  background-size: cover;
   background-color: rgba(0, 0, 0, 0.35);
   color: #ffffff;
+  transition: min-width var(--item-transition-duration);
 }
-#item::before {
-  background: rgba(0, 0, 0, 0.35);
-}
+
 #imgitem {
   width: 100%;
   position: absolute;
- filter: brightness(60%);
+  filter: brightness(60%);
   height: 70px;
   z-index: 0;
 }
 
 #textitem {
+  border: 20px solid transparent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   position: relative;
   z-index: 1;
 }

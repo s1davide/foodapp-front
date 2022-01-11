@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/components/atoms/Btn.scss";
-const Btn = (props) => {
+const Btn = (props) => {  
   return (
     <div
       className="btn"
@@ -9,7 +9,9 @@ const Btn = (props) => {
         marginRight: props.mr,
         cursor: props.curHover,
       }}
+      onClick={props.onClick}
     >
+      
       {props.img ? <img src={props.img} /> : ""}
     </div>
   );

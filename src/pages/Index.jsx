@@ -14,11 +14,8 @@ const Index = (props) => {
       bgImg: Category2,
     },
     { text: "BEBIDAS ALCOHOLICAS", bgImg: Category3 },
-  ].map((v,i) => <Item key={i} text={v.text} bgImg={v.bgImg} />);
- const rO = new ResizeObserver(e=>{
+  ].map((v,i) => <Item title={v.text} key={i} text={v.text} bgImg={v.bgImg} />);
 
- })
- 
   return (
     <div className="index">
       <TitleBody title="Categorias" />
