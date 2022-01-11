@@ -4,6 +4,7 @@ import Btn from "../atoms/Btn";
 import coolicon from "../../assets/img/coolicon.png";
 import { sel,eventBus } from "../../utils/reusableFunctions";
 const NavBar = (props) => {
+
   return (
     <div id="navbar">
       {/* Left Menu Btn */}
