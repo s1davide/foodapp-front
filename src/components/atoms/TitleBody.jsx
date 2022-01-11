@@ -1,11 +1,11 @@
-import React from 'react'
-import "../../styles/components/atoms/titlebody.scss"
+import React from "react";
+import "../../styles/components/atoms/TitleBody.scss";
 const titlebody = (props) => {
-    return (
-        <div id='titlebody'>
-           <div style={{marginTop: "11px"}}>{props.title}</div> 
-        </div>
-    )
-}
+  return (
+    <div id="titlebody">
+      <div style={{ marginTop: "11px", marginLeft: "20px" }}>{props.title}</div>
+    </div>
+  );
+};
 
-export default titlebody
+export default titlebody;
