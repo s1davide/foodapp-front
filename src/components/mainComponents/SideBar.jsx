@@ -30,20 +30,20 @@ const SideBar = () => {
   }, []);
 
   return (
-    <div id="sidebar" className={visible ? "" : "sidebar-hide"}>
-      <div className="menuitem">
+    <div id="sidebar" >
+      <div className={"menuitem" + " "+(visible ? "" : "menuitem-hide")}>
         <FaHome className="iconmenu" />
         <a href="#">Inicio</a>
       </div>
-      <div className="menuitem">
+      <div className={"menuitem" + " "+(visible ? "" : "menuitem-hide")}>
         <FaInfoCircle className="iconmenu" />
         <a href="#">Información</a>
       </div>
-      <div className="menuitem">
+      <div className={"menuitem" + " "+(visible ? "" : "menuitem-hide")}>
         <FaMapMarkerAlt className="iconmenu" />
         <a href="#">Ubicación</a>
       </div>
-      <div className="menuitem">
+      <div className={"menuitem" + " "+(visible ? "" : "menuitem-hide")}>
         <FaInstagram className="iconmenu" />
         <a href="#">Instagram</a>
       </div>

@@ -3,6 +3,7 @@
   --width-sidebar: var(--width-sidebar-base);
   --speed-transition-sidebar: 850ms;
   --opacity-items:1;
+  --speed-transition-items: 200ms;
 }
 #sidebar {
   height: calc(100vh - 70px - 60px);
@@ -29,9 +30,12 @@
   display: flex;
   opacity: var(--opacity-items);
   flex-direction: row;
-  transition: opacity 200ms;
+  transition: opacity calc(var(--speed-transition-sidebar) + 1300ms);
 }
-
+.menuitem-hide{
+    opacity:0;
+    transition: opacity var(--speed-transition-items);
+}
 .iconmenu {
   width: 40px;
   font-size: 20px;
