@@ -1,20 +1,22 @@
 :root {
-  --width-sidebar: 200px;
+  --width-sidebar-base: 200px;
+  --width-sidebar: var(--width-sidebar-base);
+  --speed-transition-sidebar: 850ms;
+  --opacity-items:1;
 }
 #sidebar {
-  height: calc(100vh - 70px);
-  width: 200px;
+  height: calc(100vh - 70px - 60px);
+  width: var(--width-sidebar);
   background-color: #770000;
   color: #fff;
   padding: 30px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: width 850ms;
+  transition: all var(--speed-transition-sidebar);
+  
 }
-.sidebar-hide {
-  width: 0px !important;
-}
+
 
 #navmenu.active {
   left: 0;
@@ -22,14 +24,12 @@
 }
 
 .menuitem {
-  width: 80%;
+  width: 160px;
   height: 50px;  
   display: flex;
-  opacity: 1;
+  opacity: var(--opacity-items);
   flex-direction: row;
-}
-.menuitem{
-
+  transition: opacity 200ms;
 }
 
 .iconmenu {
