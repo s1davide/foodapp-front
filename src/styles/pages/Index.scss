@@ -1,8 +1,14 @@
 .index{
     display: flex;
-    width: calc(100% - var(--width-sidebar ));
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    transition: var(--speed-transition-sidebar);
+}
+.listitems{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -20px;
+    height: auto;  
+    width: 100%;
 }

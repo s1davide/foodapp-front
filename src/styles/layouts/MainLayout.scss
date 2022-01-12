@@ -1,4 +1,18 @@
+
+#mainlayout{
+    overflow: hidden;
+}
 #belownavbar{
     display: flex;
     flex-direction: row;
+}
+#bodycontent{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100% - var(--width-sidebar) );
+    transition: width var(--speed-transition-sidebar);
+}
+#overlaybody{
+    transition: all 200ms;
 }
