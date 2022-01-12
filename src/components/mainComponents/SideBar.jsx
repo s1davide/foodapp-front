@@ -15,19 +15,25 @@ import {
 
 const SideBar = () => {
   const [visible, setVisible] = useState(false);
-   /**
+  /**
    * Show or hide sidebar
    * @param {boolean} action
    * @param {boolean} current
    */
   const actionSideBar = (action) => {
-    return action
-      ? updateCssVar("--opacity-items", 1) |
+    return (
+      (() => {
+        setTimeout(() => {
+          eventBus.dispatch("showHideOverlaySidebar", action);
+        }, 1);
+      })() |
+      (action
+        ? updateCssVar("--opacity-items", 1) |
           updateCssVar("--width-sidebar", getCssVar("--width-sidebar-base")) |
           updateCssVar("--min-width-item", "var(--min-width-item-base)") |
           updateCssVar("--item-transition-duration", "0ms") |
           action
-      : updateCssVar("--opacity-items", 0) |
+        : updateCssVar("--opacity-items", 0) |
           updateCssVar("--width-sidebar", 0 + "px") |
           updateCssVar(
             "--item-transition-duration",
@@ -43,7 +49,8 @@ const SideBar = () => {
               getCssVar("--speed-transition-sidebar").replace("ms", "")
             );
           })() |
-          action;
+          action)
+    );
   };
   useEffect(() => {
     actionSideBar(false);
@@ -53,7 +60,6 @@ const SideBar = () => {
       );
     });
   }, []);
- 
 
   return (
     <div id="sidebar">

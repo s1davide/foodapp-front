@@ -32,9 +32,12 @@
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.35);
   color: #ffffff;
-  transition: min-width var(--item-transition-duration);
+  transition: all var(--item-transition-duration);
+ 
 }
-
+.item-clickable:active{
+  transform:scale(0.99) ;
+}
 #imgitem {
   width: 100%;
   position: absolute;

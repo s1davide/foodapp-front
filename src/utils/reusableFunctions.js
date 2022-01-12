@@ -31,6 +31,16 @@ export const eventBus = {
     document.removeEventListener(event, callback);
   },
 };
+
+/** */
+export const getAPI = () => {
+  new Promise((resolve) =>
+    fetch("http://example.com/movies.json")
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+  );
+};
+
 /**
  * Allow update css var
  * @param {string} varName
