@@ -32,12 +32,15 @@ export const eventBus = {
   },
 };
 
-/** */
-export const getAPI = () => {
-  new Promise((resolve) =>
-    fetch("http://example.com/movies.json")
+/**
+ * Get API JSON data
+ */
+export const getAPI = (url) => {
+  return new Promise((resolve) =>
+    fetch(url)
       .then((response) => response.json())
       .then((data) => resolve(data))
+      .catch((err) => console.log(err) | resolve({}))
   );
 };
 
@@ -50,11 +53,6 @@ export const updateCssVar = (varName, value) => {
   document.documentElement.style.setProperty(varName, value);
 };
 
-export const customTimeout = (callback, time) => {
-  return setTimeout(() => {
-    callback();
-  }, time);
-};
 /**
  * Get css var value
  * @param {string} varName

@@ -10,8 +10,8 @@ import {
   eventBus,
   updateCssVar,
   getCssVar,
-  customTimeout,
 } from "../../utils/reusableFunctions";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const [visible, setVisible] = useState(false);
@@ -42,7 +42,7 @@ const SideBar = () => {
           (() => {
             setTimeout(
               () =>
-                getCssVar("--width-sidebar") !=
+                getCssVar("--width-sidebar") !==
                 getCssVar("--width-sidebar-base")
                   ? updateCssVar("--min-width-item", "0px")
                   : action,
@@ -63,21 +63,21 @@ const SideBar = () => {
 
   return (
     <div id="sidebar">
-      <div className={"menuitem" + " " + (visible ? "" : "menuitem-hide")}>
+      <div className={`menuitem ${visible ? "" : "menuitem-hide"}`} onClick={()=>eventBus.dispatch('showHideSideBar') }>
         <FaHome className="iconmenu" />
-        <a href="#">Inicio</a>
+        <Link to="/">Inicio</Link>
       </div>
-      <div className={"menuitem" + " " + (visible ? "" : "menuitem-hide")}>
+      <div className={`menuitem ${visible ? "" : "menuitem-hide"}`}>
         <FaInfoCircle className="iconmenu" />
-        <a href="#">Información</a>
+        <Link to="#">Información</Link>
       </div>
-      <div className={"menuitem" + " " + (visible ? "" : "menuitem-hide")}>
+      <div className={`menuitem ${visible ? "" : "menuitem-hide"}`}>
         <FaMapMarkerAlt className="iconmenu" />
-        <a href="#">Ubicación</a>
+        <Link to="#">Ubicación</Link>
       </div>
-      <div className={"menuitem" + " " + (visible ? "" : "menuitem-hide")}>
+      <div className={`menuitem ${visible ? "" : "menuitem-hide"}`}>
         <FaInstagram className="iconmenu" />
-        <a href="#">Instagram</a>
+        <Link to="#">Instagram</Link>
       </div>
     </div>
   );
