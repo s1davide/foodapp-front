@@ -5,12 +5,13 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ProductsList from "./pages/ProductsList";
 const Router = () => {
+ 
   return (
     <BrowserRouter>
       <Routes>
         <Route  element={<MainLayout />}>
           <Route path="/" element={<Index />} />
-          <Route path="/productos" element={<ProductsList />} />
+          <Route path="/productos/:category" element={<ProductsList />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

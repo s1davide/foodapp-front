@@ -11,16 +11,18 @@ const MainLayout = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   useEffect(() => {
     eventBus.on("showHideOverlaySidebar", (action) => {
-      setShowOverlay((currentVisible) => action);
+      setShowOverlay(() => action);
     });
   }, []);
+ 
   return (
-    <div id="mainlayout">      
+    <div id="mainlayout">
       <NavBar />
       <div id="belownavbar">
         <SideBar />
         <div id="bodycontent">
           <Overlay
+            event={{ onClick: ()=>eventBus.dispatch('showHideSideBar') }}
             style={showOverlay ? animations.fadeIn : animations.fadeOut}
             id="overlaybody"
           />
