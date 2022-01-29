@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../styles/components/mainComponents/SideBar.scss";
+import "./SideBar.scss";
 import {
   FaHome,
   FaInfoCircle,
@@ -29,41 +29,46 @@ const SideBar = () => {
       })() |
       (action
         ? updateCssVar("--opacity-items", 1) |
-          updateCssVar("--width-sidebar", getCssVar("--width-sidebar-base")) |
-          updateCssVar("--min-width-item", "var(--min-width-item-base)") |
-          updateCssVar("--item-transition-duration", "0ms") |
-          action
+        updateCssVar("--width-sidebar", getCssVar("--width-sidebar-base")) |
+        updateCssVar("--min-width-item", "var(--min-width-item-base)") |
+        updateCssVar("--item-transition-duration", "0ms") |
+        action
         : updateCssVar("--opacity-items", 0) |
-          updateCssVar("--width-sidebar", 0 + "px") |
-          updateCssVar(
-            "--item-transition-duration",
-            "var(--speed-transition-sidebar)"
-          ) |
-          (() => {
-            setTimeout(
-              () =>
-                getCssVar("--width-sidebar") !==
+        updateCssVar("--width-sidebar", 0 + "px") |
+        updateCssVar(
+          "--item-transition-duration",
+          "var(--speed-transition-sidebar)"
+        ) |
+        (() => {
+          setTimeout(
+            () =>
+              getCssVar("--width-sidebar") !==
                 getCssVar("--width-sidebar-base")
-                  ? updateCssVar("--min-width-item", "0px")
-                  : action,
-              getCssVar("--speed-transition-sidebar").replace("ms", "")
-            );
-          })() |
-          action)
+                ? updateCssVar("--min-width-item", "0px")
+                : action,
+            getCssVar("--speed-transition-sidebar").replace("ms", "")
+          );
+        })() |
+        action)
     );
   };
   useEffect(() => {
     actionSideBar(false);
-    eventBus.on("showHideSideBar", () => {
+    eventBus.on("showHideSideBar", (condition) => {
+     
       setVisible((currentVisible) =>
-        currentVisible ? actionSideBar(false) : actionSideBar(true)
-      );
+        ((c) => c.allowedShow && !currentVisible ||
+          c.allowedHide && currentVisible)
+          (condition ? condition : { allowedShow: true, allowedHide: true }) ?
+          currentVisible ? actionSideBar(false) : actionSideBar(true)
+         
+          : (() => { })());
     });
   }, []);
 
   return (
     <div id="sidebar">
-      <div className={`menuitem ${visible ? "" : "menuitem-hide"}`} onClick={()=>eventBus.dispatch('showHideSideBar') }>
+      <div className={`menuitem ${visible ? "" : "menuitem-hide"}`} onClick={() => eventBus.dispatch('showHideSideBar')}>
         <FaHome className="iconmenu" />
         <Link to="/">Inicio</Link>
       </div>

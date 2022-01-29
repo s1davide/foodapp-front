@@ -1,18 +1,23 @@
 
 #mainlayout{
     overflow: hidden;
+    margin-bottom: 55px;
 }
 #belownavbar{
     display: flex;
     flex-direction: row;
+    padding-top: calc(var(--height-navbar) + var(--size-titlebody) );
+    
 }
 #bodycontent{
     display: flex;
     flex-direction: column;
     position: relative;
-    width: calc(100% - var(--width-sidebar) );
-    transition: width var(--speed-transition-sidebar);
+    width: 100%;
+    
+    // transition: width var(--speed-transition-sidebar);
 }
 #overlaybody{
     transition: all 200ms;
+    position: relative;
 }

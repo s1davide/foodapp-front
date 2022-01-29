@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/components/atoms/TitleBody.scss";
+import "./TitleBody.scss";
 import Btn from "./Btn";
 const titlebody = (props) => {
   return (
@@ -17,6 +17,8 @@ const titlebody = (props) => {
         <Btn
           style={props.leftBtnStyle}
           img={props.leftBtnImg}
+          imgStyle={props.leftBtnImgStyle}
+          p='8px'
           curHover="pointer"
           onClick={props.leftBtnAction}
         />

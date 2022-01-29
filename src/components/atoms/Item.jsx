@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/components/atoms/Item.scss";
+import "./Item.scss";
 const Item = (props) => {
   return (
     <div draggable="false" id="item" style={props.style}>
@@ -15,7 +15,7 @@ const Item = (props) => {
       ) : (
         ""
       )}
-      <div id="textitem">{props.text}</div>
+      {props.text?<div id="textitem">{props.text}</div>:''}
       {props.rightComponent ? props.rightComponent : ""}
     </div>
   );
