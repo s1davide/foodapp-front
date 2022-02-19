@@ -1,24 +1,37 @@
-import React from "react";
+import React, {  useEffect } from "react";
 import Item from "../components/atoms/Item";
 import TitleBody from "../components/atoms/TitleBody";
-import "../styles/pages/Index.scss";
-import { Link } from "react-router-dom";
+import { eventBus } from "../utils/reusableFunctions";
+import "./Index.scss";
 import categories from "../staticData/categories";
-const Index = (props) => {
+import CustomLink from "../components/atoms/CustomLink";
+const Index = (props) => { 
+    setTimeout(() => {
+      eventBus.dispatch("updateTitleBody", {
+        titleStyle: { marginTop: "12px", marginLeft: "25px" }, title: "CATEGORIAS"
+      })
+    }, 1);    
+  // <TitleBody titleStyle={{ marginTop: "12px", marginLeft: "25px" }} title="CATEGORIAS" />
   const lItems = Object.keys(categories).map((v, i) => (
-    <Link key={i} to={"/productos/" + v}>
+    <CustomLink key={i} to={"/productos/" + v} children={
       <Item
         clickable="true"
         title={categories[v].text}
         text={categories[v].text}
         bgImg={categories[v].bgImg}
+        style={{
+          marginTop: "55px", height: "75.6px",
+          borderRadius: '25px'
+        }}
       />
-    </Link>
+    } />
+
+
   ));
 
   return (
     <div className="index">
-      <TitleBody titleStyle={{ marginTop: "11px" }} title="Categorias" />
+
       <div className="listitems">{lItems}</div>
     </div>
   );

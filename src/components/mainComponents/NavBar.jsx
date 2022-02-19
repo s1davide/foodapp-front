@@ -1,19 +1,22 @@
 import React from "react";
-import "../../styles/components/mainComponents/NavBar.scss";
+import "./NavBar.scss";
 import Btn from "../atoms/Btn";
-import coolicon from "../../assets/img/coolicon.png";
-import { sel,eventBus } from "../../utils/reusableFunctions";
+import buttonMenu from "../../assets/img/buttonMenu.svg";
+import { eventBus } from "../../utils/reusableFunctions";
 const NavBar = (props) => {
-
   return (
     <div id="navbar">
       {/* Left Menu Btn */}
       <Btn
         ml="16px"
-        onClick={() => eventBus.dispatch('showHideSideBar','')}
+        p='8px'
+        onClick={() => eventBus.dispatch('showHideSideBar')}
         curHover="pointer"
-        img={coolicon}
+        img={buttonMenu}
+        imgStyle={{width:"20px"}}
+        style={{color:"#000000"}}
       />
+      <div id="titlenavbar">PIZZERIA DON REMOLO</div>
     </div>
   );
 };

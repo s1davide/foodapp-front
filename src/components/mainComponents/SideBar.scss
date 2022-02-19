@@ -1,14 +1,17 @@
 :root {
   --width-sidebar-base: 200px;
-  --width-sidebar: var(--width-sidebar-base);
-  --speed-transition-sidebar: 850ms;
+  --width-sidebar: 0px;
+  --speed-transition-sidebar: 350ms;
   --opacity-items:1;
   --speed-transition-items: 200ms;
 }
 #sidebar {
-  height: calc(100vh - 70px - 60px);
+  height: calc(100vh - 64px - 60px);
   width: var(--width-sidebar);
-  background-color: #770000;
+  top: var(--height-navbar);
+  background-color:#FFAC99  ;
+  position: fixed;
+  z-index: 3;
   color: #fff;
   padding: 30px 0;
   display: flex;

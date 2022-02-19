@@ -13,8 +13,7 @@
   justify-content: center;
   position: relative;
   width: calc(100% - (20px * 2));
-  margin-left: 20px;
-  margin-bottom: 10px;
+
   min-width: var(--min-width-item);
   height: 70px;
   left: 0px;
@@ -43,7 +42,7 @@
   position: absolute;
   filter: brightness(60%);
   border: 1px solid transparent;
-  height: 70px;
+  height: 100%;
   z-index: 0;
 }
 

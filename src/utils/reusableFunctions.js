@@ -71,3 +71,16 @@ export const sel = (el) => {
     ? document.getElementById(el.replace("#", ""))
     : document.getElementsByClassName(el.replace(".", ""));
 };
+
+/**
+ * Show Dialog
+ */
+export const showDialog = (text) => {
+  eventBus.dispatch('showDialog', text);
+  return new Promise((resolve, reject) => {
+    eventBus.on('responseDialog', (res) => {
+      resolve(res)
+    })
+
+  })
+}
