@@ -1,0 +1,101 @@
+@import "Src/global.scss";
+#footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #000000;
+    color:#FFFFFF ;
+    padding: 30px 80px;
+}
+#upfooter{
+    display: flex;
+    align-items: flex-start;
+}
+#endfooter{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color:gray;
+}
+.endfootericons{
+    margin-left: 8px;
+}
+.columnsfooter{
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    margin-left: 7%;
+    width: 33.3%;
+    text-align: left;    
+    overflow: hidden;
+    user-select: none;
+}
+.arrowfooter{
+    display: none;
+    position: absolute;    
+    right: 18px;
+    transform: translateY(10px)  rotate(-90deg);
+}
+.titlecolumnfooter{
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.collapsible{
+    max-height: 180px;
+    transition: max-height 200ms;
+}
+@media screen and (min-width:calc($md  + 1px)) and (max-width: $lg)   {
+    .columnsfooter{
+        margin-left: 10%;
+    }
+}
+@media screen and (min-width:calc($sm  + 1px) ) and (max-width: $md)  {
+
+}
+@media screen and (min-width:calc($xs  + 1px) ) and (max-width: $sm) {
+    #baseitempopulars{
+        flex-wrap: nowrap;
+    }
+    .columnsfooter:first-child{
+        
+        margin-bottom: 25px;
+        margin-left: 0%;
+    }
+    #footer{
+        padding-right: 60px;
+    }
+   
+}
+@media screen and (max-width: $xs) {
+    #footer{
+        padding: 18px 18px;
+    }
+    #baseitempopulars{
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+    .columnsfooter{
+        width: 100%;
+        margin-bottom: 25px;
+        margin-left: 0px;
+    }
+    .titlecolumnfooter{
+        margin: 0;
+    }
+    .columnsfooter>div{
+        line-height: 30px;
+    }
+    #upfooter{
+        flex-direction: column;        
+    }
+    .arrowfooter{
+        display: block;
+    }
+    .collapsed + .collapsible{
+        max-height: 0px;
+    }
+}

@@ -1,10 +1,37 @@
+@import "Src/global.scss";
 .index{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
+   overflow: hidden;
 }
+#mainimagetitle{
+    color: white; 
+    font-size: 70px; 
+    font-weight: 700;
+     width: 69% 
+}
+.mainimagebase{
+    height: 54vw;
+    width: 100%;
+    position: relative;
+    // width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#mainimagetopindex{
+    height: 100%; width: 100%; position: absolute; left: 0; z-index: -1;    }
+#topmainimage{
+        height:calc(100vh - var(--height-navbar)) ;
+        min-height: 300px;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
+}
+
 .listitems{
     display: flex;
     flex-direction: column;
@@ -15,4 +42,112 @@
 .listitems >a{
     display: flex;
     justify-content: center;
+}
+#populars{
+    width: 100%; 
+    text-align: left; 
+    font-size: 36px;
+    color: #EE4641; 
+    font-weight: 700; 
+    box-sizing: border-box;
+     padding: 50px 80px;
+
+}
+#baseitempopularsmobile{
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#baseitempopularsdesk{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+#baseitempopularsdesk > .swiper-slide{
+    width: 28vw;    
+}
+
+.textItemPopulars{
+    top: 34%;
+    font-size: 40px;
+    
+}
+.itempopular{
+    width: 100% !important;
+    border-radius: 17px !important;
+}
+#secondimage{
+    color: white;
+    font-weight: 600;
+    background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+        background-size: cover !important;
+}
+
+#secimgtext1{
+    font-size: 3.5vw;
+}
+#secimgtext2{
+    font-size: 3.7vw;
+    font-weight: 700;
+    
+}
+#secimgtext3{
+    font-size: 3.5vw;
+}
+
+@media screen and (min-width: $sm)  and (max-width: $md) {
+    #mainimagetitle{ 
+        font-size: 50px;
+    }
+    .textItemPopulars{
+        top: 34%;
+        font-size: 3vw;        
+    }
+    #baseitempopularsdesk > .swiper-slide{
+        width: 26vw;  
+        margin-right: 4px;  
+    }
+}
+@media screen and (min-width: $xs ) and (max-width: $sm) {
+    #mainimagetitle{ 
+        font-size: 37px;
+    }
+    .textItemPopulars{
+        top: 34%;
+        font-size: 2.5vw;       
+    }
+    #baseitempopularsdesk > .swiper-slide{
+        width: 22vw;  
+        margin-right: 4px;  
+    }
+} 
+@media screen and (max-width: $xs)  {
+    #mainimagetitle{ 
+        font-size: 28px;
+    }
+    #baseitempopularsdesk{
+        display: none;
+    }
+    #baseitempopularsmobile{
+        display: flex;
+    }
+    .textItemPopulars{
+        top: 34%;
+        font-size: 92%;        
+    }
+    #populars{
+        font-size: 24px !important;
+        padding: 20px 20px;
+        text-align: center;
+    }
+    #baseitempopularsmobile .itempopular{
+        height: 50vw !important;
+    }
+    #baseitempopularsmobile  .swiper-slide{
+        width: 48.5% !important;  
+        margin-right: 2% !important;  
+    }
+   
 }

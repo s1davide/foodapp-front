@@ -1,7 +1,11 @@
+@import "Src/global.scss";
 #productlist {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+  padding: 20px 20px;
 }
 #productlist >.customlink{
   display: flex;
@@ -25,4 +29,14 @@
 }
 #productright {
   margin-right: 17px;
+}
+.cardproduct{
+  box-sizing: border-box;
+  margin: 10px 10px;
+}
+@media screen and (max-width: $xs)  { 
+  .cardproduct{
+    width: 38vw !important;
+    height: 66vw !important;
+  }
 }

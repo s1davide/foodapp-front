@@ -1,20 +1,38 @@
-import Category1 from "../assets/img/categories/Category1.png";
-import Category2 from "../assets/img/categories/Category2.png";
-import Category3 from "../assets/img/categories/Category3.png";
+import img1 from "Assets/img/index/populars/Rectangle603.png";
+import img2 from "Assets/img/index/populars/Rectangle604.png";
+import img3 from "Assets/img/index/populars/Rectangle605.png";
+import img4 from "Assets/img/index/populars/Rectangle606.png";
+import img5 from "Assets/img/index/populars/Rectangle607.png";
+import img6 from "Assets/img/index/populars/Rectangle608.png";
 const categories = {
-  "Comida-chatarra": {
-    text: "ANTOJOS DULCES Y SALADOS",
-    bgImg: Category1,
+  "Hawaiana": {
+    text: "Hawaiana",
+    bgImg: img1,
   },
   Bebidas: {
-    text: "BEBIDAS SIN ALCOHOL",
+    text: "Mexicana",
 
-    bgImg: Category2,
+    bgImg: img2,
   },
-  "Bebidas-Alcoholicas": {
-    text: "BEBIDAS ALCOHOLICAS",
+  "Pepperoni": {
+    text: "Pepperoni",
 
-    bgImg: Category3,
+    bgImg: img3,
+  },
+  "4 Quesos": {
+    text: "4 Quesos",
+
+    bgImg: img4,
+  },
+  "Orilla de queso": {
+    text: "Orilla de queso",
+
+    bgImg: img5,
+  },
+  "Corazón": {
+    text: "Corazón",
+
+    bgImg: img6,
   },
 };
 export default categories;

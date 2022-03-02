@@ -1,106 +1,66 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import CustomLink from '../components/atoms/CustomLink';
-import Item from '../components/atoms/Item';
-import { itemCommonStyles, textCommonStyles, titleBarCommonStyle } from '../staticData/sharedData';
-import { eventBus, showDialog } from '../utils/reusableFunctions';
-
+import CustomLink from 'Components/atoms/CustomLink';
+import Item from 'Components/atoms/Item';
+import { itemCommonStyles, textCommonStyles, titleBarCommonStyle } from 'StaticData/sharedData';
+import { eventBus, showDialog } from 'Utils/reusableFunctions';
 import "./Cart.scss"
-
-import DeleteProduct from "../assets/img/products/deleteProduct.svg";
-import Btn from '../components/atoms/Btn';
+import plus from "assets/img/cart/plus.svg";
+import minus from "assets/img/cart/minus.svg";
+import DeleteProduct from "Assets/img/products/deleteProduct.svg";
+import Btn from 'Components/atoms/Btn';
 /**
   * Set title
   */
 
 const Cart = () => {
-    const [productInData, setProductInData] = useState([]);
     const navigate = useNavigate();
-    const currentProducts = ((p) => p ? JSON.parse(p) : [])(window.localStorage.getItem('products'));
-    setTimeout(() => {
-        eventBus.dispatch("updateTitleBody", {
-            ...titleBarCommonStyle,
-            ...{
-                titleStyle: { marginTop: "12px", marginLeft: "25px" }, title: "MI PEDIDO",
-                leftBtnAction: () => navigate(-1)
-            }
-        })
-    }, 1);
-    const deleteItem =(id)=>{
+    const [productInData, setProductInData] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
-        showDialog("¿Está seguro que quiere eliminar este item de su pedido?").then((r)=>{
-            // console.log(currentProducts,id);
-            // console.log();
-            window.localStorage.setItem('products',JSON.stringify(currentProducts.filter((v,i)=>i!==id))       )
-            // console.log(id);
-            window.location.reload()
 
-            
-        })
-    }
-    const getTotalCurrentProducts = ()=>{
-       return currentProducts.reduce((vb,va)=>vb+va.totalPrice,0)
-    }
     useEffect(() => {
-        setProductInData(
-            currentProducts.map((v, i) => (<CustomLink key={i}
-                // to={`${location.pathname}/${v._id}`} 
-                to={""}
-                children={
-                    <Item
-                        key={i}
-                        leftComponent={
-                            <div id="productleftPlist"
-                                style={{
-                                    backgroundImage: `url('${v.image}')`,
-                                    width: itemCommonStyles.productleftCompWidth,
-                                }}></div>
-                        }
-                        style={itemCommonStyles.style}
-                        rightComponent={
-                            <div style={{ ...itemCommonStyles.productRightCompStyle, ...{ alignItems: 'start' } }}>
-                                <div >
-                                    <div style={itemCommonStyles.productRightCompNameStyle}>{v.name}</div>
-                                    <div style={itemCommonStyles.productRightCompPriceStyle}>${v.totalPrice}</div>
-                                </div>
-                                <Btn
-                                    dp="flex"
-                                    p="0px 13px"
-                                    onClick={()=>deleteItem(i)}
-                                    img={DeleteProduct}
-                                ></Btn>
-                                {/* <img id="productright" src={DeleteProduct} alt=""></img> */}
-                            </div>
-                        }
-                    />
-                } />)
-            )
-        )
+
+
     }, [])
 
-    return <div id='cartlist'>
+    const ItemCart = () => <div style={{ display: 'flex', justifyContent: "space-between", margin: "15px 25px" }}><div>Text</div>
+        <div style={{ display: 'flex', alignItems: "center", justifyContent: "center" }}>
+            <Btn img={minus} dp="flex" mr="10px" jc="center" h="20px" w="20px"
+                style={{ border: "#8C8C8C 2px solid", borderRadius: "50px" }}
+            /><div>1</div><Btn ml="10px" dp="flex" jc="center" h="20px" img={minus} mr="5px" w="20px"
+                style={{ border: "#8C8C8C 2px solid", borderRadius: "50px" }} img={plus} /></div>
+    </div>
+    return <div id='cart'>
         {productInData}
-        <div id='totalcartdiv'>
-            <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-                <div style={{ ...textCommonStyles.itemsBodyTitle, ...{ paddingLeft: "22px", marginTop: '0px' } }}>Total</div>
-                <div style={{ ...textCommonStyles.itemsBodyTitle, ...{ paddingRight: "22px", marginTop: '0px' } }}>${getTotalCurrentProducts()}</div>
+        <div id='cartcontent'>
+            <div style={{
+                backgroundColor: "#EE4641", height: "50px",
+                borderTopLeftRadius: "10px", borderTopRightRadius: "10px",
+                color: "white", fontSize: "27px", fontWeight: "bold"
+            }}>Mi orden</div>
+            <div id='cartlist'>
+                <ItemCart></ItemCart>
             </div>
-            <Btn h="53px" d="flex"  ai="center" bgColor="#30A178" style={{margin:'0px 19px'}} 
+            <div style={{ display: "flex", justifyContent: "space-between", textAlign: "left", margin: "0px 22px" }}> <div>Total a pagar:</div> <div>$15</div> </div>
+            <Btn h="38px" d="flex" br="8px" ai="center" bg="#EE4641" style={{ margin: '10px 19px', }}
 
-            text={
-                <div style={{
-                    height:'100%',
-                    color: '#FFFFFF', display: 'flex',
-                    justifyContent: 'center', alignItems: 'center',
-                    padding: '0px 8px'
-                }}>
-                    <div>Confirmar Pedido</div>
+                text={
+                    <div style={{
+                        height: '100%',
+                        color: 'white', display: 'flex',
+                        justifyContent: 'center', alignItems: 'center',
+                        padding: '0px 8px'
+                    }}>
+                        <div>Confirmar Pedido</div>
 
-                </div>
-            } >
+                    </div>
+                } >
             </Btn>
-
         </div>
+
+
+
 
     </div>;
 };

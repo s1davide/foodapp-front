@@ -1,12 +1,12 @@
 
 #mainlayout{
     overflow: hidden;
-    margin-bottom: 55px;
+    // margin-bottom: 55px;
 }
 #belownavbar{
     display: flex;
     flex-direction: row;
-    padding-top: calc(var(--height-navbar) + var(--size-titlebody) );
+    // padding-top: calc(var(--height-navbar) + var(--size-titlebody) );
     
 }
 #bodycontent{

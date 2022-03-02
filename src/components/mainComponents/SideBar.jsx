@@ -10,7 +10,7 @@ import {
   eventBus,
   updateCssVar,
   getCssVar,
-} from "../../utils/reusableFunctions";
+} from "Utils/reusableFunctions";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
@@ -55,13 +55,13 @@ const SideBar = () => {
   useEffect(() => {
     actionSideBar(false);
     eventBus.on("showHideSideBar", (condition) => {
-     
+
       setVisible((currentVisible) =>
-        ((c) => c.allowedShow && !currentVisible ||
-          c.allowedHide && currentVisible)
+        ((c) => (c.allowedShow && !currentVisible) ||
+          (c.allowedHide && currentVisible))
           (condition ? condition : { allowedShow: true, allowedHide: true }) ?
           currentVisible ? actionSideBar(false) : actionSideBar(true)
-         
+
           : (() => { })());
     });
   }, []);

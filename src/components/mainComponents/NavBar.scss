@@ -1,15 +1,17 @@
+@import "Src/global.scss";
 :root {
     --height-navbar: 64px;
 }
 #navbar{
     display: flex;
-    position: fixed;
+    // position: fixed;
     z-index: 4;
     height: var(--height-navbar);
     width: 100%;
-    background-color: #E95A39;    
+    background-color: #EE4641;    
     align-items: center;
     transition: all var( --speed-transition-sidebar);
+    justify-content: space-around;
 }
 #titlenavbar{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -18,6 +20,59 @@
     font-size: 20px;
     margin-left: 10px;
     line-height: 23px;
-    color: #111111;
+    color: white;
+    display: flex;
+    align-items: center;    
+}
+#menunavbar{
+    display: flex;
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+  
     
+}
+#menunavbar div{
+    margin-left: 18px;
+    
+}
+#mobilebtn{
+    position: absolute;
+    right: 30px;
+    transform: translateY(calc(var(--height-navbar) * -1));
+    transition: 300ms transform;
+}
+@media screen and (max-width: $md) {
+    
+}
+@media screen and (max-width: $sm) {
+    #menunavbar{ 
+        // transform: (translateY(calc(var(--height-navbar) * -1) ));
+        transform:  (translateY(calc(var(--height-navbar) * -2) )) ;
+        align-items: flex-start;
+        background-color: var(--background-theme);        
+        width: 100%;
+        flex-direction: column;
+        z-index: 3;
+        position: absolute;
+        padding-top: 15px;
+        transition:  200ms transform;
+    }
+    #menunavbar div{
+        margin-bottom: 17px;
+        margin-top: 5px;
+    }
+    .menunavbar-show{
+        
+        transform:  translateY(calc(var(--height-navbar) + 69px)) !important;
+    }
+    #titlenavbar{
+        position: absolute;
+        left: 10px;
+        margin-left: 0px;
+    }
+    #mobilebtn{
+        transform: translateY(0px);
+        right: 10px;
+    }
 }
