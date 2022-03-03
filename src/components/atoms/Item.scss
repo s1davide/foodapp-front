@@ -12,10 +12,10 @@
   cursor: pointer;
   justify-content: center;
   position: relative;
-  width: calc(100% - (20px * 2));
+  width: 90px;
 
   min-width: var(--min-width-item);
-  height: 70px;
+  height: 90px;
   left: 0px;
   top: 0px;
   border-radius: 8px;
@@ -31,7 +31,7 @@
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.35);
   color: #ffffff;
-  transition: all var(--item-transition-duration);
+  
  
 }
 .item-clickable:active{
@@ -50,7 +50,7 @@
   border: 20px solid transparent;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  
   position: relative;
   z-index: 1;
 }

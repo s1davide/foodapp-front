@@ -1,5 +1,5 @@
 
-import ArrowIcon from "../assets/img/titleBody/arrow.svg";
+import ArrowIcon from "Assets/img/titleBody/arrow.svg";
 
 export const titleBarCommonStyle = {
     leftBtn: true,

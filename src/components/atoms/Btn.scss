@@ -1,7 +1,65 @@
-.btn{    
+.btn {
     font-size: inherit;
     user-select: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
 }
-.btn > div{
+.btn > div {
     font-size: inherit;
+}
+.effectclick {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-duration: 250ms;
+    animation-delay: 0ms;
+    // border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    // background-color: white;
+}
+.unclickedanimation {
+    animation-name: unclickcircle;
+}
+.clickedanimation {
+    animation-name: clickcircle;
+}
+@keyframes clickcircle {
+    0% {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0.1);
+    }
+    80% {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0.15);
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0.15);
+    }
+}
+@keyframes unclickcircle {
+    0% {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0.15);
+    }
+    80% {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0);
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255, 0);
+    }
 }

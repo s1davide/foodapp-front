@@ -1,5 +1,5 @@
 /**
- * Use events to comunicate between components
+ * Use events to comunicate between components or create custom events
  * @return Object
  */
 export const eventBus = {
@@ -77,10 +77,13 @@ export const sel = (el) => {
  */
 export const showDialog = (text) => {
   eventBus.dispatch('showDialog', text);
-  return new Promise((resolve, reject) => {
-    eventBus.on('responseDialog', (res) => {
-      resolve(res)
-    })
 
-  })
+}
+
+/**
+ * Sum px with px sufix
+ */
+export const sumPx = (valPx, n) => {
+  return (`${parseInt(valPx.replace("px", "")) + n}px`)
+
 }

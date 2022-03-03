@@ -2,69 +2,59 @@ import React, { useEffect, useState } from "react";
 import "./ProductsList.scss";
 
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import categories from "../staticData/categories";
-import { eventBus, getAPI } from "../utils/reusableFunctions";
-import Item from "../components/atoms/Item";
+import categories from "StaticData/categories";
+import { eventBus, getAPI } from "Utils/reusableFunctions";
+import Item from "Components/atoms/Item";
 
-import ArrowIconRight from "../assets/img/products/arrowRight.svg";
+import ArrowIconRight from "Assets/img/products/arrowRight.svg";
+import Card from "Components/molecules/Card"
+import CustomLink from "Components/atoms/CustomLink";
 
-import CustomLink from "../components/atoms/CustomLink";
-
-import { itemCommonStyles, titleBarCommonStyle } from "../staticData/sharedData";
+import { itemCommonStyles, titleBarCommonStyle } from "StaticData/sharedData";
+import Spinner from "components/atoms/Spinner";
 
 const ProductsList = () => {
   const params = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const [loaded, setLoaded] = useState(false);
   const [apiData, setApiData] = useState([]);
-  /**
-   * Set title
-   */
-  setTimeout(() => {
-    eventBus.dispatch("updateTitleBody", {
-      ...titleBarCommonStyle,
-      ...{
-        titleStyle: { marginTop: "12px", marginLeft: "25px" }, title: categories[params.category].text,
-        leftBtnAction: () => navigate(-1)
-      }
-    })
-  }, 1);
+
+
 
   useEffect(() => {
-    getAPI("https://foodappteam7.herokuapp.com/productos").then((r) => {
-      setApiData(
-        r
-          .filter((v) => v.categoria === params.category.replace("-", " "))
-          .map((v, i) => (
-            <CustomLink key={i} to={`${location.pathname}/${v._id}`} children={
-              <Item
+    console.log('useEffect');
+
+    setTimeout(() => {
+      setLoaded(false);
+      (() => setLoaded((cL) => !cL ? eventBus.dispatch('showOverlay', true) | cL : cL))()
+    }, 1);
+    Promise.all([getAPI("https://fodaap.herokuapp.com/category"), getAPI("https://fodaap.herokuapp.com/product")])
+      .then((r) => {
+        eventBus.dispatch('showOverlay', false);
+        setLoaded(true)
+        setApiData(
+          r[1].filter((v) => v.category._id == r[0].find((v) => v.name.toLowerCase() == params.category)._id)
+            .map((v, i) => (
+              // <CustomLink key={i} to={`${location.pathname}/${v._id}`} children={
+              <Card
                 key={i}
-                leftComponent={
-                  <div id="productleftPlist"
-                    style={{
-                      backgroundImage: `url('${v.image}')`,
-                      width: itemCommonStyles.productleftCompWidth,
-                    }}></div>
-                }
-                style={itemCommonStyles.style}
-                rightComponent={
-                  <div style={itemCommonStyles.productRightCompStyle}>
-                    <div >
-                      <div style={itemCommonStyles.productRightCompNameStyle}>{v.nombre}</div>
-                      <div style={itemCommonStyles.productRightCompPriceStyle}>${v.precio}</div>
-                    </div>
-                    <img id="productright" src={ArrowIconRight} alt=""></img>
-                  </div>
-                }
+                title={v.name}
+                text={v.description}
+                price={v.price}
+                imgSrc={v.image}
+                allInfo={v}
+                className="cardproduct"
               />
-            } />
-          ))
-      );
-    });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+              // } />
+            ))
+        );
+      });
+  }, [location]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div id="productlist">
       {apiData}
+      {/* <Card imgSrc="https://cdn.metro-online.com/nextcms/-/media/Project/MCW/ES_Makro/Info-y-servicios/productos/Carnes/Hamburguesas/cabecera-hamburguesas.jpg?rev=7dd9e72878aa48e196463a299207cc59&w=1416&hash=C038802C37A9657E2AB459F5478B8FDD"></Card> */}
     </div>
   );
 };

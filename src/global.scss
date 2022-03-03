@@ -1,0 +1,16 @@
+$bgtheme: #EE4641;
+:root{
+    --background-theme: #{$bgtheme};
+}
+$xs: 599px;
+$sm: 904px;
+$md: 1239px;
+$lg: 1439px;
+
+:export {
+bgtheme: $bgtheme;
+xs:$xs;
+sm:$sm;
+md:$md;
+lg:$lg
+}

@@ -1,11 +1,28 @@
+
 #dialogwindow{
     // position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 200px;
     min-width: 80%;
+    width: 80%;    
     border-radius: 40px;
     border: 5px solid #30A178;
     background: #FFFFFF;
     
+}
+#textdialog{    
+    width: 85%; 
+    padding: 12px 8px; 
+    margin-top: 15px;
+    min-height: 50%;
+    white-space: pre-wrap;
+}
+#buttonsdialog{
+    display: flex; 
+    width: 100%;
+    justify-content: space-around;
 }
 .overlaydialog{    
     display: flex;

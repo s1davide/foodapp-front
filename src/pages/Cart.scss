@@ -1,22 +1,42 @@
-:root{
+@import "Src/global.scss";
+:root {
     --totalcart-size: 100px;
     --totalcart-paddingtop: 5px;
 }
-#cartlist{
-    position: relative;
-    overflow: auto;
-    height: calc(100vh - (var(--height-navbar) + var(--size-titlebody) + var(--totalcart-size) + var(--totalcart-paddingtop))) ;
-}
-#cartlist > a{
+#cart {
     display: flex;
     justify-content: center;
-   
+    padding-top: 5%;
 }
-#totalcartdiv{
+#cartcontent {
+    border: 1px solid gray;
+
+    width: 500px;
+    border-radius: 10px;
+}
+#carttitle {
+    top: -1px;
+    left: -1px;
+    width: 100.4%;
+    position: relative;
+    margin-bottom: 46px;
+}
+#cartlist {
+    height: 50vh;
+    min-height: 250px;
+    overflow: auto;
+}
+#totalcartdiv {
     padding-top: var(--totalcart-paddingtop);
     height: var(--totalcart-size);
     width: 100%;
-    position:  fixed;
+    position: fixed;
     z-index: 2;
     bottom: 0;
+}
+@media screen and (max-width: $xs) {
+    #cart {
+        padding: 0px 10px;
+        padding-top: 50px;
+    }
 }

@@ -1,0 +1,48 @@
+$imageHeight: 50%;
+.card {
+    height: 290px;
+    width: 200px;
+    border-radius: 8px;
+    border: 1px solid #8c8c8c;
+    background-position: 100% 0%;
+    background-size: 101% $imageHeight;
+    background-repeat: no-repeat;
+}
+.containercontentcard {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+}
+.contentcard {
+    position: relative;
+    height: calc(100% - $imageHeight);
+    width: 100%;
+    padding: 0px 9px;
+}
+.titlecard {
+    font-weight: 600;
+    margin: 8px 0px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.textcard {
+    font-size: 13px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.optionscard {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 90%;
+    bottom: 14px;
+}
+.textbtn {
+    font-size: 13px !important;
+    font-weight: 600;
+}

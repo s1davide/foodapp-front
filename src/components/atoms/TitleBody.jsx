@@ -1,6 +1,6 @@
 import React from "react";
 import "./TitleBody.scss";
-import Btn from "./Btn";
+import Btn from "Components/atoms/Btn";
 const titlebody = (props) => {
   return (
     <div

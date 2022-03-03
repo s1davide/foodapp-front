@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import "./ProductDetail.scss"
-import { eventBus, getAPI } from '../utils/reusableFunctions';
-import Btn from '../components/atoms/Btn';
-import Plus from "../assets/img/productList/Plus.svg"
-import Minus from "../assets/img/productList/Minus.svg"
-import { textCommonStyles, titleBarCommonStyle } from '../staticData/sharedData';
+import { eventBus, getAPI } from 'Utils/reusableFunctions';
+import Btn from 'Components/atoms/Btn';
+import Plus from "Assets/img/productList/Plus.svg"
+import Minus from "Assets/img/productList/Minus.svg"
+import { textCommonStyles, titleBarCommonStyle } from 'StaticData/sharedData';
 
 
 const ProductDetail = () => {
@@ -106,17 +106,17 @@ const ProductDetail = () => {
     <div className='itemproddetail' style={{ justifyContent: 'space-between', marginTop: '30px' }} >
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <Btn img={Minus} w="30px" h="30px" dp="flex" jc="center"
-          bgColor="#30A178" style={{ borderRadius: '3px' }} imgStyle={{ width: '14px' }}
+          bg="#30A178" style={{ borderRadius: '3px' }} imgStyle={{ width: '14px' }}
           onClick={selectedQ > 1 ? () => setSelectedQ(selectedQ - 1) : () => { }}
         />
         <div style={{ margin: '0px 10px' }}>{selectedQ}</div>
         <Btn img={Plus} w="30px" h="30px" dp="flex" jc="center"
-          bgColor="#30A178" style={{ borderRadius: '3px' }} imgStyle={{ width: '14px' }}
+          bg="#30A178" style={{ borderRadius: '3px' }} imgStyle={{ width: '14px' }}
           onClick={() => setSelectedQ(selectedQ + 1)} />
       </div>
       <Btn p="8px" w="50%"
         onClick={addToCart}
-        bgColor="#30A178" style={{
+        bg="#30A178" style={{
           borderRadius: '10px', fontSize: '14px',
           fontWeight: '700'
         }}
