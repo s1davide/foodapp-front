@@ -10,35 +10,39 @@ $imageHeight: 50%;
 }
 .containercontentcard {
     display: flex;
-    height: 100%;    
+    height: 100%;
     align-items: flex-end;
 }
-.contentcard{
+.contentcard {
     position: relative;
-    height: calc(100% - $imageHeight );
+    height: calc(100% - $imageHeight);
     width: 100%;
-    padding: 0px 9px ;
+    padding: 0px 9px;
 }
-.titlecard{
+.titlecard {
     font-weight: 600;
     margin: 8px 0px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
-.textcard{
-     font-size: 13px;
-     text-align: left;
-     display: -webkit-box;     
-     -webkit-box-orient: vertical;
-     -webkit-line-clamp:2 ;
-     overflow: hidden;
+.textcard {
+    font-size: 13px;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
-.optionscard{
+.optionscard {
     display: flex;
     justify-content: space-between;
     position: absolute;
     width: 90%;
     bottom: 14px;
 }
-.textbtn{
+.textbtn {
     font-size: 13px !important;
     font-weight: 600;
 }

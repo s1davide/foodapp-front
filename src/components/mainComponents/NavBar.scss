@@ -2,19 +2,20 @@
 :root {
     --height-navbar: 64px;
 }
-#navbar{
+#navbar {
     display: flex;
     // position: fixed;
     z-index: 4;
     height: var(--height-navbar);
     width: 100%;
-    background-color: #EE4641;    
+    background-color: #ee4641;
     align-items: center;
-    transition: all var( --speed-transition-sidebar);
+    transition: all var(--speed-transition-sidebar);
     justify-content: space-around;
 }
-#titlenavbar{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+#titlenavbar {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -22,56 +23,55 @@
     line-height: 23px;
     color: white;
     display: flex;
-    align-items: center;    
+    align-items: center;
 }
-#menunavbar{
+#menunavbar {
     display: flex;
     font-weight: 700;
     font-size: 14px;
     color: white;
-  
-    
 }
-#menunavbar div{
+#menunavbar div {
     margin-left: 18px;
-    
 }
-#mobilebtn{
+#mobilebtn {
+    width: 50px;
     position: absolute;
     right: 30px;
     transform: translateY(calc(var(--height-navbar) * -1));
     transition: 300ms transform;
 }
+#mobilebtn > img {
+    width: 40%;
+}
 @media screen and (max-width: $md) {
-    
 }
 @media screen and (max-width: $sm) {
-    #menunavbar{ 
+    #menunavbar {
         // transform: (translateY(calc(var(--height-navbar) * -1) ));
-        transform:  (translateY(calc(var(--height-navbar) * -2) )) ;
+        transform: (translateY(calc(var(--height-navbar) * -2)));
         align-items: flex-start;
-        background-color: var(--background-theme);        
+        background-color: var(--background-theme);
         width: 100%;
         flex-direction: column;
         z-index: 3;
         position: absolute;
         padding-top: 15px;
-        transition:  200ms transform;
+        transition: 200ms transform;
     }
-    #menunavbar div{
+    #menunavbar div {
         margin-bottom: 17px;
         margin-top: 5px;
     }
-    .menunavbar-show{
-        
-        transform:  translateY(calc(var(--height-navbar) + 69px)) !important;
+    .menunavbar-show {
+        transform: translateY(calc(var(--height-navbar) + 69px)) !important;
     }
-    #titlenavbar{
+    #titlenavbar {
         position: absolute;
         left: 10px;
         margin-left: 0px;
     }
-    #mobilebtn{
+    #mobilebtn {
         transform: translateY(0px);
         right: 10px;
     }

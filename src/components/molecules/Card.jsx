@@ -1,27 +1,13 @@
 import React from 'react'
 import "./Card.scss"
 import Btn from "Components/atoms/Btn"
+import { eventBus } from 'Utils/reusableFunctions'
+import { editCartItemsLocalStorage } from 'utils/commonFunctions'
 const Card = (props) => {
 
-    const e = (v) => {
-
-
-        window.localStorage.setItem('cart', ((cv) => {
-            console.log(cv);
-            cv == null ? JSON.stringify([].concat(
-                [{
-                    name: v.name,
-                    price: v.price
-                }]
-            )) : JSON.parse(cv).concat([{
-                name: v.name,
-                price: v.price
-            }])
-
-        }
-        )(window.localStorage.getItem('cart')))
-        console.log(window.localStorage.getItem('cart'));
-
+    const addToCart = (v) => {
+        eventBus.dispatch('showNotification', 'Producto agregado al carrito');
+        editCartItemsLocalStorage(v, +1)
     }
     return (
         <div className={`card ${props.className ? props.className : ''}`} style={{
@@ -52,8 +38,10 @@ const Card = (props) => {
                         {props.text}
                     </div>
                     <div className='optionscard'>
-                        <Btn className="textbtn" bg="var( --background-theme)" p="3px 1px" br="4px" w="46%" color="white" onClick={() => e(props.allInfo)}> Añadir</Btn>
+                        <Btn className="textbtn" bg="var( --background-theme)" p="3px 1px" br="4px" w="46%" color="white"
+                            onClick={() => addToCart(props.allInfo)}> Añadir</Btn>
                         <Btn className="textbtn" bg="" br="4px" b="solid 1px var( --background-theme)" w="46%"
+                            onClick={() => addToCart(props.allInfo)}
                             color="var( --background-theme)"> $ {props.price}</Btn>
                     </div>
                 </div>
