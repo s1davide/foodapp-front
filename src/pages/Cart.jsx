@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import CustomLink from 'Components/atoms/CustomLink';
-import Item from 'Components/atoms/Item';
-import { itemCommonStyles, textCommonStyles, titleBarCommonStyle } from 'StaticData/sharedData';
-import { eventBus, showDialog } from 'Utils/reusableFunctions';
 import "./Cart.scss"
 import plus from "assets/img/cart/plus.svg";
 import minus from "assets/img/cart/minus.svg";
-import DeleteProduct from "Assets/img/products/deleteProduct.svg";
+
 import Btn from 'Components/atoms/Btn';
 import { editCartItemsLocalStorage } from 'utils/commonFunctions';
 /**
@@ -42,7 +37,7 @@ const Cart = () => {
             <Btn img={minus} dp="flex" mr="10px" jc="center" h="20px" w="20px"
                 style={{ border: "#8C8C8C 2px solid", borderRadius: "50px" }}
                 onClick={btnMinusClick}
-            /><div>{q}</div><Btn ml="10px" dp="flex" jc="center" h="20px" img={minus} mr="5px" w="20px"
+            /><div>{q}</div><Btn ml="10px" dp="flex" jc="center" h="20px" mr="5px" w="20px"
                 style={{ border: "#8C8C8C 2px solid", borderRadius: "50px" }} img={plus}
                 onClick={btnPlusClick}
             /></div>
