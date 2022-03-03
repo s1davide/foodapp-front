@@ -1,6 +1,5 @@
 import Btn from 'components/atoms/Btn'
 import React, { useEffect, useState } from 'react'
-import { Reveal } from 'react-reveal'
 import "animate.css"
 import "./Notification.scss"
 import { eventBus } from 'Utils/reusableFunctions'
@@ -9,7 +8,7 @@ const Notification = () => {
     const [show, setShow] = useState(false);
     const [firstLoad, setFirstLoad] = useState(false);
     const [content, setContent] = useState();
-    const [duration, setDuration] = useState(1000);
+    const [duration] = useState(1000);
     useEffect(() => {
 
         eventBus.on('showNotification', (data) => {
@@ -26,7 +25,7 @@ const Notification = () => {
         })
 
 
-    }, [])
+    }, [duration])
 
     return (
         // <Reveal effect="animate__fadeInUp" effectOut="">

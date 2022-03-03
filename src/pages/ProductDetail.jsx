@@ -39,7 +39,7 @@ const ProductDetail = () => {
       (
         setLoaded((currentLoaded) =>
           !loaded ?
-            setProductData(r.find((v) => v._id == params.product)) | true : currentLoaded))
+            setProductData(r.find((v) => v._id === params.product)) | true : currentLoaded))
       setLoaded(true);
 
     })
@@ -73,7 +73,8 @@ const ProductDetail = () => {
    * Component 
    */
   return <div id='productdetail'>
-    <img src={productData.image} width="70%" />
+    {/* <img src={productData.image} alt
+    ="" width="70%" /> */}
     {/* Seccion opcional */}
     <div style={textCommonStyles.itemsBodyTitle}
     >Opcional:</div>

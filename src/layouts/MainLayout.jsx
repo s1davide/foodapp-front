@@ -6,30 +6,17 @@ import SideBar from "Components/mainComponents/SideBar";
 import "./MainLayout.scss";
 import animations from "Utils/animations";
 import { eventBus } from "Utils/reusableFunctions";
-import TitleBody from "Components/atoms/TitleBody";
 import Notification from "components/molecules/Notification";
-import { Reveal } from "react-reveal";
-
 
 const MainLayout = (props) => {
   const [showOverlay, setShowOverlay] = useState(false);
-  const [titleBodyInfo, setTitleBodyInfo] = useState({});
-  const [show, setShow] = useState(false)
   useEffect(() => {
-    setTimeout(() => {
-      setShow(true)
-      // setTimeout(() => {
-      //   setShow(false)
-      // }, 2000);
-    }, 2000);
+
 
     eventBus.on("showOverlay", (action) => {
-      setShowOverlay((currentAction) => action != currentAction ? action : currentAction);
+      setShowOverlay((currentAction) => action !== currentAction ? action : currentAction);
     });
-    eventBus.on("updateTitleBody", (data) => {
-      // console.log(data);      
-      setTitleBodyInfo(() => data)
-    })
+
   }, []);
 
   return (

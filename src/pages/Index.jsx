@@ -27,14 +27,14 @@ const Index = (props) => {
   const [matches, setMatches] = useState(
     editMatches
   )
-  // console.log();
+
   useEffect(() => {
-    window.matchMedia(rangeMatches.xs).
-      addEventListener("change", e => setMatches(editMatches))
-    window.matchMedia(rangeMatches.sm).
-      addEventListener("change", e => setMatches(editMatches))
-    window.matchMedia(rangeMatches.md).
-      addEventListener("change", e => setMatches(editMatches) | sel("#menunavbar").classList.remove('menunavbar-show'))
+    window.matchMedia(rangeMatches.xs).addEventListener
+      ("change", e => setMatches(editMatches))
+    window.matchMedia(rangeMatches.sm).addEventListener
+      ("change", e => setMatches(editMatches))
+    window.matchMedia(rangeMatches.md).addEventListener
+      ("change", e => setMatches(editMatches) | sel("#menunavbar").classList.remove('menunavbar-show'))
     // window.matchMedia(`(min-width: ${sumPx(varsScss.sm,1)})`).
     // addEventListener("change", e => setMatches({...structureMatches,...{md:e.matches}}))
     // window.matchMedia(`(max-width: ${varsScss.md})`).
